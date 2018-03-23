@@ -27,13 +27,13 @@
                 @apply --layout-flex;
             }
 
-            div.layout {
+            .layout {
                 border-left: 1px solid var(--step-connector-line-color, #BDBDBD);
                 margin-left: 24px;
                 padding: 10px 28px;
             }
 
-            :host([stepper-horizontal]) div.layout {
+            :host([stepper-horizontal]) .layout {
                 border-left: none;
                 position: absolute;
                 left: 0;
@@ -61,7 +61,7 @@
                 border-top: none;
             }
 
-            :host([optional]) span#subtitle {
+            :host([optional]) #subtitle {
                 display: block;
                 font-size: 0.8em;
                 margin-top: 2px;
@@ -69,24 +69,24 @@
                 text-transform: capitalize;
             }
 
-            :host span#subtitle {
+            :host #subtitle {
                 display: none;
             }
 
             /* label button */
 
-            :host([save]) div#labelBtn {
+            :host([save]) #labelBtn {
                 color: var(--step-saved-label-color, #424242);
                 font-weight: inherit;
             }
 
-            :host([save][active]) div#labelBtn,
-            :host([active]) div#labelBtn {
+            :host([save][active]) #labelBtn,
+            :host([active]) #labelBtn {
                 color: var(--step-active-label-color, #424242);
                 font-weight: 600;
             }
 
-            div#labelBtn {
+            #labelBtn {
                 align-self: center;
                 padding: 0 16px;
                 font-size: 14sp;
@@ -109,11 +109,11 @@
 
             /* Badge */
 
-            :host([save]) span.badgeNumber {
+            :host([save]) .badgeNumber {
                 display: none;
             }
 
-            span.badgeNumber {
+            .badgeNumber {
                 @apply --layout-horizontal;
                 @apply --layout-center-justified;
                 @apply --layout-center;
@@ -124,7 +124,7 @@
             /* Badge and iron-icon */
 
             iron-icon#iconBtn,
-            span.badgeNumber {
+            .badgeNumber {
                 --iron-icon-height: 18px;
                 --iron-icon-width: 18px;
                 min-width: 18px;
