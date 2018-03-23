@@ -17,6 +17,10 @@
                 --arrow-size: var(--step-arrow-size, 6px);
             }
 
+            :host(:last-child) .stepConnector {
+                min-height: 0px;
+            }
+
             :host([stepper-horizontal]) {
                 width: auto;
                 @apply --layout-flex;
