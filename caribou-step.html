@@ -12,6 +12,7 @@
         <style>
             /* General */
             :host {
+                display: block;
                 height: inherit;
                 --step-badge-width: var(--step-badge-width, 30px);
                 --arrow-size: var(--step-arrow-size, 6px);
@@ -49,8 +50,8 @@
             }
 
             .stepConnector {
-                width: var(--step-badge-width);
                 min-height: 16px;
+                width: var(--step-badge-width);
                 @apply --layout;
                 @apply --layout-center-justified;
             }
@@ -128,7 +129,7 @@
                 font-weight: var(--step-label-font-weight, 300);
                 text-transform: var(--step-label-text-transform, uppercase);
                 color: var(--step-label-color, #E0E0E0);
-                transition: font-size .2s;
+                transition: font-size .2s ease-in-out;
             }
 
             :host([save]) .labelBtn {
@@ -151,7 +152,7 @@
                 box-sizing: border-box;
                 background-color: var(--step-badge-color, #9E9E9E);
                 color: var(--step-badge-content-color, #FFFFFF);
-                transition: background-color .2s;
+                transition: background-color .2s ease-in-out;
             }
 
             :host([active]) .editIcon,
