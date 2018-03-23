@@ -78,20 +78,20 @@
             .labelBtn {
                 align-self: center;
                 padding: 0 16px;
-                font-size: var(--step-label-font-size, 14px);
+                font-size: var(--step-label-font-size, 16px);
                 font-weight: var(--step-label-font-weight, 300);
                 color: var(--step-label-color, #E0E0E0);
             }
 
             :host([save]) .labelBtn {
-                font-size: var(--step-saved-label-font-size, 14px);
+                font-size: var(--step-saved-label-font-size, 16px);
                 font-weight: var(--step-saved-label-font-weight, 300);
                 color: var(--step-saved-label-color, #424242);
             }
 
             :host([active]) .labelBtn {
-                font-size: var(--step-active-label-font-size, 14px);
-                font-weight: var(--step-active-label-font-weight, 300);
+                font-size: var(--step-active-label-font-size, 16px);
+                font-weight: var(--step-active-label-font-weight, 600);
                 color: var(--step-active-label-color, #424242);
             }
 
@@ -100,6 +100,7 @@
             .badgeNumber {
                 padding: var(--step-badge-padding, 6px);
                 border-radius: 50%;
+                box-sizing: border-box;
                 background-color: var(--step-badge-color, #9E9E9E);
                 color: var(--step-badge-content-color, #FFFFFF);
             }
@@ -108,8 +109,8 @@
                 @apply --layout-horizontal;
                 @apply --layout-center-justified;
                 @apply --layout-center;
-                width: var(--step-badge-width, 18px);
-                height: var(--step-badge-height, 18px);
+                width: var(--step-badge-width, 30px);
+                height: var(--step-badge-height, 30px);
                 font-size: var(--step-badge-font-size, 16px);
             }
 
@@ -118,8 +119,8 @@
             }
 
             .editIcon {
-                --iron-icon-height: var(--step-badge-width, 18px);
-                --iron-icon-width: var(--step-badge-width, 18px);
+                --iron-icon-height: var(--step-badge-width, 30px);
+                --iron-icon-width: var(--step-badge-width, 30px);
                 --iron-icon-fill-color: var(--step-badge-content-color, #FFFFFF);
                 --iron-icon-stroke-color: var(--step-badge-content-color, #FFFFFF);
                 display: none;
