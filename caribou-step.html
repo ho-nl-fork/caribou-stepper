@@ -13,6 +13,7 @@
             /* General */
             :host {
                 height: inherit;
+                --step-badge-width: var(--step-badge-width, 30px);
             }
 
             :host([stepper-horizontal]) {
@@ -27,9 +28,27 @@
             }
 
             .layout {
-                border-left: 1px solid var(--step-connector-line-color, #BDBDBD);
-                margin-left: 24px;
-                padding: 10px 28px;
+                padding: 0.7em 0.57em;
+                @apply --layout;
+                @apply --layout-self-stretch;
+            }
+
+            #stepContent {
+                width: 100%;
+                padding: var(--step-content-padding, 10px);
+                padding-left: 16px;
+            }
+
+            .stepConnector {
+                width: var(--step-badge-width);
+                min-height: 16px;
+                @apply --layout;
+                @apply --layout-center-justified;
+            }
+
+            .stepConnectorLine {
+                width: var(--step-connector-line-width, 1px);
+                background-color: var(--step-connector-line-color, #BDBDBD);
             }
 
             :host([stepper-horizontal]) .layout {
@@ -110,8 +129,8 @@
                 @apply --layout-horizontal;
                 @apply --layout-center-justified;
                 @apply --layout-center;
-                width: var(--step-badge-width, 30px);
-                height: var(--step-badge-height, 30px);
+                width: var(--step-badge-width);
+                height: var(--step-badge-height);
                 font-size: var(--step-badge-font-size, 16px);
             }
 
@@ -120,8 +139,8 @@
             }
 
             .editIcon {
-                --iron-icon-height: var(--step-badge-width, 30px);
-                --iron-icon-width: var(--step-badge-width, 30px);
+                --iron-icon-height: var(--step-badge-width);
+                --iron-icon-width: var(--step-badge-width);
                 --iron-icon-fill-color: var(--step-badge-content-color, #FFFFFF);
                 --iron-icon-stroke-color: var(--step-badge-content-color, #FFFFFF);
                 display: none;
@@ -136,10 +155,6 @@
             caribou-step-action-buttons paper-button {
                 @apply --button-style;
             }
-
-            #stepContent {
-                width: 100%;
-            }
         </style>
 
         <paper-button on-tap="_toggle">
@@ -152,6 +167,9 @@
             </div>
         </paper-button>
         <div class="layout">
+            <div class="stepConnector">
+                <span class="stepConnectorLine"></span>
+            </div>
             <iron-collapse id="stepContent" opened="{{active}}" horizontal$="{{stepperHorizontal}}">
                 <slot></slot>
                 <caribou-step-action-buttons id="stepButtons" continue-label="[[continueLabel]]" finish-label="[[finishLabel]]" update-label="[[updateLabel]]"
