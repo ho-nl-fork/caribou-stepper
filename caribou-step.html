@@ -11,7 +11,6 @@
     <template>
         <style>
             /* General */
-
             :host {
                 height: inherit;
             }
@@ -42,6 +41,8 @@
                 @apply --layout-flex;
             }
 
+
+            /* Paper-button */
             paper-button {
                 position: relative;
                 display: flex;
@@ -73,7 +74,13 @@
                 display: none;
             }
 
-            /* label button */
+            /* Label button */
+            .labelBtn {
+                align-self: center;
+                padding: 0 16px;
+                font-size: 14sp;
+                color: var(--step-label-color, #E0E0E0);
+            }
 
             :host([save]) .labelBtn {
                 color: var(--step-saved-label-color, #424242);
@@ -86,15 +93,7 @@
                 font-weight: 600;
             }
 
-            .labelBtn {
-                align-self: center;
-                padding: 0 16px;
-                font-size: 14sp;
-                color: var(--step-label-color, #E0E0E0);
-            }
-
-            /* icon button */
-
+            /* Icon button */
             :host iron-icon.iconBtn {
                 display: none;
                 --iron-icon-fill-color: var(--step-badge-content-color, #FFFFFF);
@@ -108,11 +107,6 @@
             }
 
             /* Badge */
-
-            :host([save]) .badgeNumber {
-                display: none;
-            }
-
             .badgeNumber {
                 @apply --layout-horizontal;
                 @apply --layout-center-justified;
@@ -121,8 +115,11 @@
                 height: var(--step-badge-height, 18px);
             }
 
-            /* Badge and iron-icon */
+            :host([save]) .badgeNumber {
+                display: none;
+            }
 
+            /* Badge and iron-icon */
             iron-icon.iconBtn,
             .badgeNumber {
                 --iron-icon-height: 18px;
