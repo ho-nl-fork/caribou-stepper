@@ -18,7 +18,11 @@
             }
 
             :host(:last-child) .stepConnector {
-                min-height: 0px;
+                visibility: hidden;
+            }
+
+            :host(:last-child[active]) .stepConnector {
+                visibility: visible;
             }
 
             :host([stepper-horizontal]) {
