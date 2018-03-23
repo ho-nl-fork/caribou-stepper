@@ -405,13 +405,15 @@
              * @private
              */
             _toggle() {
-                if (!this.parentElement.finish && (!this.parentElement.linear && (!this.save || this.editable)) ||
-                    (this.parentElement.linear &&
-                        this.editable)) {
-                    this.parentElement.__closeAllStep(this);
-                    this.toggleStep();
-                    if (this.save && this.editable)
-                        this.$.stepButtons.setUpdate(true);
+                if(!this.active) {
+                    if (!this.parentElement.finish && (!this.parentElement.linear && (!this.save || this.editable)) ||
+                        (this.parentElement.linear && this.editable)) {
+                        this.parentElement.__closeAllStep(this);
+                        this.toggleStep();
+                        if (this.save && this.editable) {
+                            this.$.stepButtons.setUpdate(true);
+                        }
+                    }
                 }
             }
 
