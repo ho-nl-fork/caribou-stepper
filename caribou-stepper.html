@@ -67,7 +67,7 @@
                         value: function () {
                             return [];
                         },
-                        observer: '_setConnectorLineIcon'
+                        observer: '_passPropertiesToChildren'
                     },
 
                     /**
@@ -87,14 +87,21 @@
                     connectorLineIcon: {
                          type: Boolean,
                          value: false,
-                         observer: '_setConnectorLineIcon'
-                     }
+                         observer: '_passPropertiesToChildren'
+                    },
+
+                    noink: {
+                        type: Boolean,
+                        value: false,
+                        observer: '_passPropertiesToChildren'
+                    }
                 };
             }
 
           connectedCallback() {
             super.connectedCallback();
-            this._setConnectorLineIcon(this.connectorLineIcon);
+            this._passPropertiesToChildren(this.connectorLineIcon, this.noink);
+            this._setNoink(this.noink);
           }
 
             /**
@@ -118,13 +125,19 @@
                 element.addEventListener("update-clicked", this.__nextStep.bind(this));
             }
 
-            _setConnectorLineIcon(connectorLineIcon) {
-                if(connectorLineIcon && connectorLineIcon === true) {
-                    // Find <product-grid> and set sizing
-                    let productGrids = this.querySelectorAll('caribou-step');
-                    productGrids.forEach((step) => {
-                        step.setAttribute("connector-line-icon", connectorLineIcon);
-                    });
+            _passPropertiesToChildren(connectorLineIcon, noink) {
+                if((connectorLineIcon && connectorLineIcon === true) ||
+                  (noink && noink === true)){
+                  // Find <caribou-step> and set attributes
+                  let cariboutSteps = this.querySelectorAll('caribou-step');
+                  cariboutSteps.forEach((step) => {
+                    if(connectorLineIcon && connectorLineIcon === true) {
+                      step.setAttribute("connector-line-icon", '');
+                    }
+                    if(noink && noink === true) {
+                      step.setAttribute("noink", '');
+                    }
+                  });
                 }
             }
 

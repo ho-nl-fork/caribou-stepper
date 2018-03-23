@@ -194,7 +194,7 @@
             }
         </style>
 
-        <paper-button on-tap="_toggle">
+        <paper-button on-tap="_toggle" noink="[[noink]]">
             <div class="badge">
                 <iron-icon class="editIcon" icon="caribou-stepper-custom-icons:[[_getIcon(editable)]]"></iron-icon>
                 <span class="badgeNumber">{{_badgeNumber}}</span>
@@ -323,6 +323,10 @@
                     connectorLineIcon: {
                         type: Boolean,
                         value: false
+                    },
+
+                    noink: {
+                        type: Boolean
                     }
                 };
             }
