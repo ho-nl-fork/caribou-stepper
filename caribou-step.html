@@ -61,7 +61,7 @@
                 border-top: none;
             }
 
-            :host([optional]) #subtitle {
+            :host([optional]) .subtitle {
                 display: block;
                 font-size: 0.8em;
                 margin-top: 2px;
@@ -69,24 +69,24 @@
                 text-transform: capitalize;
             }
 
-            :host #subtitle {
+            :host .subtitle {
                 display: none;
             }
 
             /* label button */
 
-            :host([save]) #labelBtn {
+            :host([save]) .labelBtn {
                 color: var(--step-saved-label-color, #424242);
                 font-weight: inherit;
             }
 
-            :host([save][active]) #labelBtn,
-            :host([active]) #labelBtn {
+            :host([save][active]) .labelBtn,
+            :host([active]) .labelBtn {
                 color: var(--step-active-label-color, #424242);
                 font-weight: 600;
             }
 
-            #labelBtn {
+            .labelBtn {
                 align-self: center;
                 padding: 0 16px;
                 font-size: 14sp;
@@ -95,13 +95,13 @@
 
             /* icon button */
 
-            :host iron-icon#iconBtn {
+            :host iron-icon.iconBtn {
                 display: none;
                 --iron-icon-fill-color: var(--step-badge-content-color, #FFFFFF);
                 --iron-icon-stroke-color: var(--step-badge-content-color, #FFFFFF);
             }
 
-            :host([save]) iron-icon#iconBtn {
+            :host([save]) iron-icon.iconBtn {
                 display: block;
                 border-color: var(--step-save-badge-color, var(--primary-color));
                 background-color: var(--step-save-badge-color, var(--primary-color));
@@ -123,7 +123,7 @@
 
             /* Badge and iron-icon */
 
-            iron-icon#iconBtn,
+            iron-icon.iconBtn,
             .badgeNumber {
                 --iron-icon-height: 18px;
                 --iron-icon-width: 18px;
@@ -144,10 +144,10 @@
         </style>
 
         <paper-button on-tap="_toggle">
-            <iron-icon id="iconBtn" icon="caribou-stepper-custom-icons:[[_getIcon(editable)]]"></iron-icon>
+            <iron-icon class="iconBtn" icon="caribou-stepper-custom-icons:[[_getIcon(editable)]]"></iron-icon>
             <span class="badgeNumber">{{_badgeNumber}}</span>
-            <div id="labelBtn">{{label}}
-                <span id="subtitle">Optional</span>
+            <div class="labelBtn">{{label}}
+                <span class="subtitle">Optional</span>
             </div>
         </paper-button>
         <div class="layout">
