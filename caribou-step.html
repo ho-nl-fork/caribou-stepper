@@ -14,6 +14,7 @@
             :host {
                 height: inherit;
                 --step-badge-width: var(--step-badge-width, 30px);
+                --arrow-size: var(--step-arrow-size, 6px);
             }
 
             :host([stepper-horizontal]) {
@@ -49,6 +50,24 @@
             .stepConnectorLine {
                 width: var(--step-connector-line-width, 1px);
                 background-color: var(--step-connector-line-color, #BDBDBD);
+            }
+
+            :host([connector-line-icon]) .stepConnectorLine {
+                position: relative;
+            }
+
+            :host([connector-line-icon]) .stepConnectorLine:after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: var(--arrow-size);
+                height: var(--arrow-size);
+                left: calc((var(--arrow-size) / 2) * -1);
+                bottom: 0;
+                border-right: var(--step-connector-line-width, 1px) solid black;
+                border-bottom: var(--step-connector-line-width, 1px) solid black;
+                rotate: 45deg;
+                @apply --step-connector-line-after;
             }
 
             :host([stepper-horizontal]) .layout {
@@ -278,6 +297,14 @@
                         value: false,
                         readOnly: true,
                         reflectToAttribute: true
+                    },
+
+                    /**
+                     * Show arrow in step connector line
+                     */
+                    connectorLineIcon: {
+                        type: Boolean,
+                        value: false
                     }
                 };
             }
