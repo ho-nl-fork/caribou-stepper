@@ -421,8 +421,9 @@
              */
             _toggle() {
                 if(!this.active) {
-                    if (!this.parentElement.finish && (!this.parentElement.linear && (!this.save || this.editable)) ||
-                        (this.parentElement.linear && this.editable)) {
+                    if (!this.parentElement.finish
+                        && (!this.parentElement.linear && (!this.save || this.editable))
+                        || (this.parentElement.linear && this.save && this.editable)) {
                         this.parentElement.__closeAllStep(this);
                         this.toggleStep();
                         if (this.save && this.editable) {
